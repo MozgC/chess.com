@@ -12,61 +12,61 @@
 /* globals jQuery, $, waitForKeyElements */
 
 (function() {
-    'use strict';
+	'use strict';
 
-    $( document ).ready(function() {
-        window.setTimeout(function () {
-            var isTypeOne = $("div.game-controls-wrapper").length;
+	$( document ).ready(function()
+	{
+		window.setTimeout(function ()
+		{
+			var isTypeOne = $("div.game-controls-wrapper").length;
 
-            var panel = isTypeOne ? $("div.game-controls-wrapper") : $("vertical-move-list");
+			var panel = isTypeOne ? $("div.game-controls-wrapper") : $("vertical-move-list");
 
-            panel.prepend("<button type='button'>GET PGN</button>").click(function() {
-        var res = "";
+			panel.prepend("<button type='button'>GET PGN & ANALYSE IN LICHESS</button>").click(function()
+			{
+				var res = "";
 
+				var rows = isTypeOne ? "div.vertical-move-list-notation-vertical" : "vertical-move-list div.move";
 
-                var rows = isTypeOne ? "div.vertical-move-list-notation-vertical" : "vertical-move-list div.move";
+				$(rows).each( function( index, element )
+				{
+					var move = isTypeOne ? index + 1 : $(element).attr("data-whole-move-number");
+					res += move + ". ";
 
-        $(rows).each( function( index, element )
-        {
-            var move = isTypeOne ? index + 1 : $(element).attr("data-whole-move-number");
-            res += move + ". ";
+					var moves = isTypeOne ? "span.move-text-component" : "div";
 
-            var moves = isTypeOne ? "span.move-text-component" : "div";
+					$(element).find(moves).each(function(indexInternal, elementInternal)
+					{
+						var figurine = "";
+						
+						if (isTypeOne)
+						{
+							var figurineCheck = $(elementInternal).find("span");
+							
+							if (figurineCheck.is(".knight-black", "knight-white"))
+								figurine = "N";
+							else if (figurineCheck.is(".bishop-black", ".bishop-white"))
+								figurine = "B";
+							else if (figurineCheck.is(".rook-black", ".rook-white"))
+								figurine = "R";
+							else if (figurineCheck.is(".king-black", ".king-white"))
+								figurine = "K";
+							else if (figurineCheck.is(".queen-black", ".queen-white"))
+								figurine = "Q";
+						}
+						else
+							figurine = $(elementInternal).find("span.icon-font-chess").attr("data-figurine") ?? "";
 
-            $(element).find(moves).each(function(indexInternal, elementInternal)
-            {
-                var figurine = "";
-                if (isTypeOne)
-                {
-                    var figurineCheck = $(elementInternal).find("span");
+						res += figurine + $(elementInternal).text().trim() + " ";
+					});
 
-                    if (figurineCheck.is(".knight-black", "knight-white"))
-                        figurine = "N";
-                    else if (figurineCheck.is(".bishop-black", ".bishop-white"))
-                        figurine = "B";
-                    else if (figurineCheck.is(".rook-black", ".rook-white"))
-                        figurine = "R";
-                    else if (figurineCheck.is(".king-black", ".king-white"))
-                        figurine = "K";
-                    else if (figurineCheck.is(".queen-black", ".queen-white"))
-                        figurine = "Q";
-                }
-                else
-                    figurine = $(elementInternal).find("span.icon-font-chess").attr("data-figurine") ?? "";
+				});
 
+				alert(res);
 
+				window.open("https://lichess.org/analysis/pgn/" + res, '_blank');
 
-                res += figurine + $(elementInternal).text().trim() + " ";
-            });
-
-        });
-
-        alert(res);
-
-                window.open("https://lichess.org/analysis/pgn/" + res, '_blank');
-
-            });
-        }, 3000);
-
-    });
+			}); // click handler
+		}, 3000); // setTime
+    }); // document.ready
 })();
