@@ -22,7 +22,10 @@
 
 			var panel = isTypeOne ? $("div.game-controls-wrapper") : $("vertical-move-list");
 
-			panel.prepend("<button type='button'>GET PGN & ANALYSE IN LICHESS</button>").click(function()
+            var button = $("<button type='button' style='width:100%'>GET PGN & ANALYSE IN LICHESS</button>");
+			panel.before(button);
+
+            button.click(function()
 			{
 				var res = "";
 
@@ -38,11 +41,11 @@
 					$(element).find(moves).each(function(indexInternal, elementInternal)
 					{
 						var figurine = "";
-						
+
 						if (isTypeOne)
 						{
 							var figurineCheck = $(elementInternal).find("span");
-							
+
 							if (figurineCheck.is(".knight-black", "knight-white"))
 								figurine = "N";
 							else if (figurineCheck.is(".bishop-black", ".bishop-white"))
