@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="qunit-2.19.1.css" />
+</head>
+<body>
+	<div id="qunit"></div>
+	<script src="qunit-2.19.1.js"></script>
+	<script src="../jquery-3.6.1.js"></script>
+	<script src="../getpgn.js"></script>
+	<script>
+			
+	QUnit.module('getPgn', function()
+	{
+		QUnit.test('bla bla', function(assert)
+		{
+			assert.equal(getPgn(), "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
+    	});
+	});
+</script>
+
+<vertical-move-list result-node-is-selectable="true" scroll-container-id="move-list" board-id="board-single" timestamp-method="withBaseTime" class="move-list-move-list vertical-move-list timestamps-with-base-time" style="--timestampWidth:42px;">
+	<div class="move" data-whole-move-number="1">
+		1.
+		<div data-ply="1" class="white node">e4</div>
+		<div data-ply="1" data-vml-element="timestamp" class="time-white" data-time="1" style="--timeValue:1; --timeBarWidth:0.0306521px;">0.1</div>
+		<div data-ply="2" class="black node">d5</div>
+		<div data-ply="2" data-vml-element="timestamp" class="time-black" data-time="71" style="--timeValue:71; --timeBarWidth:2.17429px;">7.1</div>
+	</div>
+	<div class="move" data-whole-move-number="2">
+		2.
+		<div data-ply="3" class="white node">exd5</div>
+		<div data-ply="3" data-vml-element="timestamp" class="time-white" data-time="509" style="--timeValue:509; --timeBarWidth:14.9199px;">50.9</div>
+		<div data-ply="4" class="black node"><span class="icon-font-chess queen-black" data-figurine="Q"></span>xd5</div>
+		<div data-ply="4" data-vml-element="timestamp" class="time-black" data-time="324" style="--timeValue:324; --timeBarWidth:9.74692px;">32.4</div>
+	</div>
+	<div class="move" data-whole-move-number="3">
+		3.
+		<div data-ply="5" class="white node"><span class="icon-font-chess knight-white" data-figurine="N"></span>c3</div>
+		<div data-ply="5" data-vml-element="timestamp" class="time-white" data-time="71" style="--timeValue:71; --timeBarWidth:2.17429px;">7.1</div>
+		<div data-ply="6" class="black node"><span class="icon-font-chess queen-black" data-figurine="Q"></span>e6+</div>
+		<div data-ply="6" data-vml-element="timestamp" class="time-black" data-time="26" style="--timeValue:26; --timeBarWidth:0.796855px;">2.6</div>
+	</div>
+</vertical-move-list>
+
+</body>
+</html>
