@@ -42,3 +42,23 @@ function getPgn()
 
 	return res.trim();
 }
+
+function addButton()
+{
+	var isTypeOne = $("div.game-controls-wrapper").length;
+
+	var panel = isTypeOne ? $("div.game-controls-wrapper") : $("vertical-move-list");
+
+	var button = $("<button type='button' style='width:100%'>GET PGN & ANALYSE IN LICHESS</button>");
+	panel.before(button);
+
+	button.click(function()
+	{
+		var res = getPgn();
+
+		alert(res);
+
+		window.open("https://lichess.org/analysis/pgn/" + res, '_blank');
+
+	});
+}

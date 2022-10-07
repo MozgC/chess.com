@@ -17,9 +17,19 @@
 		{
 			assert.equal(getPgn(), "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
     	});
+
+		/*
+		QUnit.test('bla2', function(assert)
+		{
+			$("#mainDiv").html("");
+			var test = $("#mainDiv").load("file://d:\VCProjects\ChessDotComeExtensions\QUnit\test2.html");
+			var res2 = getPgn();
+			assert.equal(res2, "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
+		}); */
 	});
 </script>
 
+<div id="mainDiv">
 <vertical-move-list result-node-is-selectable="true" scroll-container-id="move-list" board-id="board-single" timestamp-method="withBaseTime" class="move-list-move-list vertical-move-list timestamps-with-base-time" style="--timestampWidth:42px;">
 	<div class="move" data-whole-move-number="1">
 		1.
@@ -43,6 +53,7 @@
 		<div data-ply="6" data-vml-element="timestamp" class="time-black" data-time="26" style="--timeValue:26; --timeBarWidth:0.796855px;">2.6</div>
 	</div>
 </vertical-move-list>
+</div>
 
 </body>
 </html>
