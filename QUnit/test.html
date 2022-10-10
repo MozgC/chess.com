@@ -18,50 +18,21 @@
 
 	QUnit.module('getPgn', function()
 	{
-		QUnit.test('bla bla', function(assert)
+		QUnit.test('bla bla', async assert =>
 		{
+			await loadHtmlFile("test1.html", "#mainDiv");
 			assert.equal(getPgn(), "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
-    	});
 
-		QUnit.test('bla2', async assert => 
-		{
-			await loadHtmlFile("./test2.html", "#mainDiv");
+			await loadHtmlFile("test2.html", "#mainDiv");
 			assert.equal(getPgn(), "1. e4 Nf6 2. Nc3 g6 3. Nf3 Bg7 4. Bc4 O-O 5. O-O a6 6. e5 Bh6 7. exf6 exf6 8. d4 Nc6 9. Bxh6 b5 10. Bd5 Ra7 11. Bxf8 Qxf8 12. a4 Qe8 13. axb5 g5");
-		}); 
 
-		QUnit.test('22movesCheckMate', async assert =>
-		{
-			await loadHtmlFile("./test3.html", "#mainDiv");
+			await loadHtmlFile("test3.html", "#mainDiv");
 			assert.equal(getPgn(), "1. d4 d5 2. Nf3 Nc6 3. c3 f6 4. e3 e5 5. Bb5 a6 6. Bxc6+ bxc6 7. O-O Bg4 8. Nbd2 Qd7 9. h3 Bxf3 10. Nxf3 e4 11. Nh4 f5 12. g4 g6 13. Qb3 fxg4 14. Qb7 Rd8 15. Qxa6 gxh3 16. Kh2 Bd6+ 17. f4 exf3+ 18. Kh1 Nf6 19. Nxf3 Qg4 20. Qxc6+ Rd7 21. Ne1 Qe2 22. Rxf6 Qh2#");
-    	});
-
+		});
 	});
 </script>
 
 <div id="mainDiv">
-<vertical-move-list result-node-is-selectable="true" scroll-container-id="move-list" board-id="board-single" timestamp-method="withBaseTime" class="move-list-move-list vertical-move-list timestamps-with-base-time" style="--timestampWidth:42px;">
-	<div class="move" data-whole-move-number="1">
-		1.
-		<div data-ply="1" class="white node">e4</div>
-		<div data-ply="1" data-vml-element="timestamp" class="time-white" data-time="1" style="--timeValue:1; --timeBarWidth:0.0306521px;">0.1</div>
-		<div data-ply="2" class="black node">d5</div>
-		<div data-ply="2" data-vml-element="timestamp" class="time-black" data-time="71" style="--timeValue:71; --timeBarWidth:2.17429px;">7.1</div>
-	</div>
-	<div class="move" data-whole-move-number="2">
-		2.
-		<div data-ply="3" class="white node">exd5</div>
-		<div data-ply="3" data-vml-element="timestamp" class="time-white" data-time="509" style="--timeValue:509; --timeBarWidth:14.9199px;">50.9</div>
-		<div data-ply="4" class="black node"><span class="icon-font-chess queen-black" data-figurine="Q"></span>xd5</div>
-		<div data-ply="4" data-vml-element="timestamp" class="time-black" data-time="324" style="--timeValue:324; --timeBarWidth:9.74692px;">32.4</div>
-	</div>
-	<div class="move" data-whole-move-number="3">
-		3.
-		<div data-ply="5" class="white node"><span class="icon-font-chess knight-white" data-figurine="N"></span>c3</div>
-		<div data-ply="5" data-vml-element="timestamp" class="time-white" data-time="71" style="--timeValue:71; --timeBarWidth:2.17429px;">7.1</div>
-		<div data-ply="6" class="black node"><span class="icon-font-chess queen-black" data-figurine="Q"></span>e6+</div>
-		<div data-ply="6" data-vml-element="timestamp" class="time-black" data-time="26" style="--timeValue:26; --timeBarWidth:0.796855px;">2.6</div>
-	</div>
-</vertical-move-list>
 </div>
 
 </body>
