@@ -10,7 +10,12 @@
 	<script src="../jquery-3.6.1.js"></script>
 	<script src="../getpgn.js"></script>
 	<script>
-			
+
+	async function loadHtmlFile(filename, where)
+	{
+		await new Promise(function (resolve) { $(where).load(filename, resolve); } );
+	}
+
 	QUnit.module('getPgn', function()
 	{
 		QUnit.test('bla bla', function(assert)
@@ -18,14 +23,18 @@
 			assert.equal(getPgn(), "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
     	});
 
-		/*
-		QUnit.test('bla2', function(assert)
+		QUnit.test('bla2', async assert => 
 		{
-			$("#mainDiv").html("");
-			var test = $("#mainDiv").load("file://d:\VCProjects\ChessDotComeExtensions\QUnit\test2.html");
-			var res2 = getPgn();
-			assert.equal(res2, "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qe6+");
-		}); */
+			await loadHtmlFile("./test2.html", "#mainDiv");
+			assert.equal(getPgn(), "1. e4 Nf6 2. Nc3 g6 3. Nf3 Bg7 4. Bc4 O-O 5. O-O a6 6. e5 Bh6 7. exf6 exf6 8. d4 Nc6 9. Bxh6 b5 10. Bd5 Ra7 11. Bxf8 Qxf8 12. a4 Qe8 13. axb5 g5");
+		}); 
+
+		QUnit.test('22movesCheckMate', async assert =>
+		{
+			await loadHtmlFile("./test3.html", "#mainDiv");
+			assert.equal(getPgn(), "1. d4 d5 2. Nf3 Nc6 3. c3 f6 4. e3 e5 5. Bb5 a6 6. Bxc6+ bxc6 7. O-O Bg4 8. Nbd2 Qd7 9. h3 Bxf3 10. Nxf3 e4 11. Nh4 f5 12. g4 g6 13. Qb3 fxg4 14. Qb7 Rd8 15. Qxa6 gxh3 16. Kh2 Bd6+ 17. f4 exf3+ 18. Kh1 Nf6 19. Nxf3 Qg4 20. Qxc6+ Rd7 21. Ne1 Qe2 22. Rxf6 Qh2#");
+    	});
+
 	});
 </script>
 
