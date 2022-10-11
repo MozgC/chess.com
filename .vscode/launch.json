@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open test.html",
-            "file": "d:\\VCProjects\\ChessDotComeExtensions\\QUnit\\test.html",
+            "name": "Open testFixture.html",
+            "file": "d:\\VCProjects\\ChessDotComeExtensions\\QUnit\\testFixture.html",
             "runtimeArgs": ["--allow-file-access-from-files"]
         }
     ]
