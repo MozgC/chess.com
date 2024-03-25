@@ -5,9 +5,4 @@ https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldm
 
 After the custom javascript is executed, a button will appear at the top of the panel with the moves. Pressing this button will show a PGN for the current game (in case you want to import the game somewhere else) and then will open the current board in lichess.org.
 
-**What you will need to after downloading the source code:**
-
-Fix the path in Tampermonkey.js:  
-// @require file://d:\VCProjects\ChessDotComeExtensions\getpgn.js
-
 Also, I use Chrome for debugging, so I allowed Chrome to load local files with a custom argument, see launch.json

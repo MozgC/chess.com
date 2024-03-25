@@ -47,7 +47,11 @@ function addButton()
 {
 	var isTypeOne = $("div.game-controls-wrapper").length;
 
-	var panel = isTypeOne ? $("div.game-controls-wrapper") : $("vertical-move-list");
+	var panel = isTypeOne ? $("div.game-controls-wrapper") : $("wc-vertical-move-list");
+	
+	// check if they updated their html
+	if (panel.length == 0)
+		alert("No panel found!");
 
 	var button = $("<button type='button' style='width:100%'>GET PGN & ANALYSE IN LICHESS</button>");
 	panel.before(button);
@@ -56,7 +60,7 @@ function addButton()
 	{
 		var res = getPgn();
 
-		alert(res);
+		alert("PGN: " + res);
 
 		window.open("https://lichess.org/analysis/pgn/" + res, '_blank');
 
