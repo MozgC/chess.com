@@ -20,7 +20,7 @@
 		{
 			addButton();
 		}, 3000);
-    });
+	});
 })();
 
 function getPgn()
@@ -31,28 +31,28 @@ function getPgn()
 
 	var rows = isTypeOne ? "div.vertical-move-list-notation-vertical" : "wc-vertical-move-list div.move";
 
-    if ($(rows).length == 0)
-        alert("No rows found!");
+	if ($(rows).length == 0)
+		alert("No rows found!");
 
-    var foundAtLeastOneRow = false;
+	var foundAtLeastOneRow = false;
 
 	$(rows).each( function( index, element )
 	{
-        foundAtLeastOneRow = true;
+		foundAtLeastOneRow = true;
 
 		var move = isTypeOne ? index + 1 : $(element).attr("data-whole-move-number");
 
-        if (move.length == 0)
-            alert("No move found!");
+		if (move.length == 0)
+			alert("No move found!");
 
-        res += move + ". ";
+		res += move + ". ";
 
 		var moves = isTypeOne ? "span.move-text-component" : "div.node";
 
-        if (moves.length == 0)
-            alert("No moves found (1) !");
+		if (moves.length == 0)
+			alert("No moves found (1) !");
 
-        var foundAtLeastOne = false;
+		var foundAtLeastOne = false;
 
 		$(element).find(moves).each(function(indexInternal, elementInternal)
 		{
@@ -62,10 +62,10 @@ function getPgn()
 			{
 				var figurineCheck = $(elementInternal).find("span");
 
-                if (figurineCheck.length == 0)
-                    alert("figurine check failed!");
+				if (figurineCheck.length == 0)
+					alert("figurine check failed!");
 
-                alert(figurineCheck);
+				alert(figurineCheck);
 
 				if (figurineCheck.is(".knight-black", ".knight-white"))
 					figurine = "N";
